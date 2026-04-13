@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "node"], // Agregué node por si acaso
     "allowSyntheticDefaultImports": true,
-    "allowArbitraryExtensions": true,  // 👈 esto
-
+    "allowArbitraryExtensions": true,
 
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -26,9 +25,9 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
 
-    "baseUrl": ".",
+    // 🚩 ELIMINAMOS baseUrl: "."
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // 👈 Asegúrate de que empiece con ./
     }
   },
   "include": ["src"]
