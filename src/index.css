@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 16% 8%;
+    --foreground: 220 10% 93%;
+
+    --card: 220 14% 11%;
+    --card-foreground: 220 10% 93%;
+
+    --popover: 220 14% 11%;
+    --popover-foreground: 220 10% 93%;
+
+    --primary: 166 56% 46%;
+    --primary-foreground: 220 16% 8%;
+
+    --secondary: 220 12% 15%;
+    --secondary-foreground: 220 10% 70%;
+
+    --muted: 220 12% 13%;
+    --muted-foreground: 220 8% 50%;
+
+    --accent: 220 12% 17%;
+    --accent-foreground: 220 10% 85%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 166 56% 46%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 16% 8%;
+    --sidebar-foreground: 220 10% 93%;
+    --sidebar-primary: 166 56% 46%;
+    --sidebar-primary-foreground: 220 16% 8%;
+    --sidebar-accent: 220 12% 15%;
+    --sidebar-accent-foreground: 220 10% 85%;
+    --sidebar-border: 220 10% 16%;
+    --sidebar-ring: 166 56% 46%;
+
+    /* Custom tokens */
+    --surface: 220 14% 10%;
+    --surface-hover: 220 14% 13%;
+    --text-dim: 220 8% 40%;
+    --text-subtle: 220 8% 56%;
+    --gradient-glow: 166 56% 46%;
+    --gradient-glow-end: 190 60% 40%;
+
+    /* Noise overlay */
+    --noise-opacity: 0.025;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    /* Subtle noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: hsl(var(--foreground));
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gradient-glow-end)));
+  }
+
+  .text-subtle {
+    color: hsl(var(--text-subtle));
+  }
+
+  .glow-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.35), transparent);
+    height: 1px;
+  }
+
+  .surface-card {
+    @apply bg-card border border-border rounded-xl;
+    background-image: linear-gradient(145deg, hsl(220 14% 12%), hsl(220 14% 10%));
+  }
+
+  .surface-card-hover {
+    @apply surface-card transition-all duration-300;
+    &:hover {
+      border-color: hsl(var(--primary) / 0.25);
+      background-image: linear-gradient(145deg, hsl(220 14% 13%), hsl(220 14% 11%));
+      box-shadow: 0 0 0 1px hsl(var(--primary) / 0.08), 0 8px 32px -8px hsl(220 16% 4% / 0.6);
+      transform: translateY(-1px);
+    }
+  }
+
+  .section-padding {
+    @apply py-28 md:py-36 px-6 md:px-8;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .grid-gap {
+    gap: 1.5rem;
+  }
+
+  /* Glowing dot pulse */
+  .status-dot {
+    position: relative;
+  }
+  .status-dot::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: hsl(var(--primary) / 0.3);
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  /* Code highlight */
+  .code-tag {
+    @apply font-mono text-xs px-2 py-0.5 rounded-md;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  /* Metric card */
+  .metric-value {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+}
+
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
