@@ -129,8 +129,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.65, ease: "easeOut" }}
           >
-            4+ years designing systems that handle real-world complexity — from
-            sub-500ms full-text search engines to zero-downtime deployments.
+            CEO at RootBash Security — Self-taught engineer since a young age,
+            crafting secure, high-performance systems with a focus on clean architecture
+            and scalability.
           </motion.p>
 
           <motion.div
