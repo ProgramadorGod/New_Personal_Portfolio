@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Github } from "lucide-react";
 
 const navItems = [
-  { label: "Philosophy", href: "#philosophy" },
+  { label: "About Me", href: "#about" },
   { label: "Case Studies", href: "#cases" },
   { label: "Stack", href: "#stack" },
 ];
@@ -24,7 +24,7 @@ const Navigation = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    const sections = ["philosophy", "cases", "stack"];
+    const sections = ["about", "cases", "stack"];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
