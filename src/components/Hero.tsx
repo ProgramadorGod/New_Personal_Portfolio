@@ -3,10 +3,26 @@ import { ArrowRight, Github, MapPin, Calendar } from "lucide-react";
 import { useRef } from "react";
 
 const stats = [
-  { value: "99.9%", label: "Production Uptime", sub: "ThesisTrack" },
-  { value: "<500ms", label: "Search Latency", sub: "10K+ docs indexed" },
-  { value: "70%", label: "Manual Work Reduced", sub: "via automation" },
-  { value: "40%+", label: "Performance Gains", sub: "FluentKing" },
+  { 
+    value: "Founder", 
+    label: "RootBash Security", 
+    sub: "Cybersecurity & Pentesting" 
+  },
+  { 
+    value: "FinTech", 
+    label: "PNC Bank Operations", 
+    sub: "Data Privacy & Compliance" 
+  },
+  { 
+    value: "Logistics", 
+    label: "DoorDash Systems", 
+    sub: "Real-time Problem Solving" 
+  },
+  { 
+    value: "EdTech", 
+    label: "CYLF English Academy", 
+    sub: "Educational Strategy" 
+  },
 ];
 
 const Hero = () => {

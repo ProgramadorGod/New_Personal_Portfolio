@@ -21,7 +21,7 @@ const categories = [
       { name: "Django REST Framework", level: 5 },
       { name: "RESTful API Design", level: 5 },
       { name: "PostgreSQL", level: 4 },
-      { name: "Data Modeling", level: 4 },
+      { name: "C# / .Net", level: 3 },
       { name: "API Contracts", level: 4 },
     ],
   },
